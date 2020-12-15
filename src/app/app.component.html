@@ -1,3 +1,29 @@
+<form novalidate class="form">
+	<input
+  [(ngModel)]="newBook.title"
+  [ngModelOptions]="{standalone: true}"
+  placeholder="Title"  />
+  <input
+  [(ngModel)]="newBook.author"
+  [ngModelOptions]="{standalone: true}"
+  placeholder="Author"  />
+  <input type="url"
+  [(ngModel)]="newBook.image"
+  [ngModelOptions]="{standalone: true}"
+  placeholder="URL" />
+	<textarea
+  [(ngModel)]="newBook.description"
+  [ngModelOptions]="{standalone: true}"
+  placeholder="Description"
+  ></textarea>
+  <input type="number"
+  [(ngModel)]="newBook.price"
+  [ngModelOptions]="{standalone: true}"
+  placeholder="Price" />
+	
+	<button (click)="isEdit ? editBook() : addBook()">Add</button>
+</form>
+
 <div *ngFor="let book of books; let i = index">
 	<h3>{{book.title}}</h3>
 	<p>{{book.author}}</p>

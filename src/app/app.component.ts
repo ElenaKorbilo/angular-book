@@ -14,6 +14,16 @@ interface Book {
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
+  newBook: Book = {
+    title: "",
+    author: "",
+    image: "",
+    description: "",
+    price: 0
+  };
+
+  isEdit: boolean = false;
+
   books: Book[] = [
     {
       title: "Гарри Поттер и узник Азкабана",
@@ -37,5 +47,15 @@ export class AppComponent {
 
   onClick(index) {
     this.books.splice(index, 1);
+  }
+
+  addBook() {
+    this.books.push({
+      ...this.newBook
+    });
+  }
+
+  editBook(){
+    
   }
 }
