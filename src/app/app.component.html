@@ -1,7 +1,7 @@
 <div *ngFor="let book of books; let i = index">
-	{{book.title}}<br>
-  {{book.author}}<br>
+	<h3>{{book.title}}</h3>
+	<p>{{book.author}}</p>
 	<img [src]="book.image" width="100px" /><br>
 	<p>{{book.description}}</p>
-	<p>Цена: {{book.price}}</p>
+	<p>Цена: {{book.price}} грн.</p>
 </div>
