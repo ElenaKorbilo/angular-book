@@ -1,0 +1,17 @@
+<!-- <div *ngIf="age > 2">
+  Hello world
+</div> -->
+
+<!-- <ul>
+	<li *ngFor="let person of persons; let i = index">
+		{{ person.name}} - {{person.age}}
+	</li>
+</ul> -->
+
+<div *ngFor="let book of Book; let i = index">
+	{{book.title}}<br>
+  {{book.author}}<br>
+	<img [src]="book.image" width="100px" /><br>
+	<p>{{book.description}}</p>
+	<p>Price: {{book.price}}</p>
+</div>
