@@ -15,7 +15,7 @@ interface Book {
 })
 export class AppComponent {
   
-  Book: Book[] = [
+  books: Book[] = [
     {
       title: "Гарри Поттер и узник Азкабана",
       author: 'Джоан Роулинг',
