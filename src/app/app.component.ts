@@ -1,11 +1,12 @@
 import { Component, VERSION } from "@angular/core";
 
 interface Book {
-  title: String;
-  author: String;
-  image: String;
-  description: String;
-  price: Number;
+  id: number;
+  title: string;
+  author: string;
+  image: string;
+  description: string;
+  price: number;
 }
 
 @Component({
@@ -15,6 +16,7 @@ interface Book {
 })
 export class AppComponent {
   newBook: Book = {
+    id: null,
     title: "",
     author: "",
     image: "",
@@ -26,6 +28,7 @@ export class AppComponent {
 
   books: Book[] = [
     {
+      id: 1,
       title: "Гарри Поттер и узник Азкабана",
       author: "Джоан Роулинг",
       image:
@@ -35,6 +38,7 @@ export class AppComponent {
       price: 175
     },
     {
+      id: 2,
       title: "Зеленая Миля",
       author: "Стивен Кинг",
       image:
@@ -50,12 +54,40 @@ export class AppComponent {
   }
 
   addBook() {
+    const lastBook = this.books[this.books.length - 1];
+    const lastId = lastBook.id;
     this.books.push({
-      ...this.newBook
+      ...this.newBook,
+      id: lastId + 1
     });
+    this.newBook = {
+      id: null,
+      title: "",
+      author: "",
+      image: "",
+      description: "",
+      price: 0
+    };
   }
 
-  editBook(){
-    
+  editBook() {
+    const bookId = this.books.indexOf(this.newBook);
+    this.books[bookId] = this.newBook;
+
+    this.newBook = {
+      id: null,
+      title: "",
+      author: "",
+      image: "",
+      description: "",
+      price: 0
+    };
+
+    this.isEdit = false;
+  }
+
+  onClickEdit(index) {
+    this.isEdit = true;
+    this.newBook = this.books[index];
   }
 }

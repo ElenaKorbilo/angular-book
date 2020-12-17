@@ -2,26 +2,31 @@
 	<input
   [(ngModel)]="newBook.title"
   [ngModelOptions]="{standalone: true}"
+  value={this.newBook.title}
   placeholder="Title"  />
-  <input
+	<input
   [(ngModel)]="newBook.author"
   [ngModelOptions]="{standalone: true}"
+  value={this.newBook.author}
   placeholder="Author"  />
-  <input type="url"
+	<input type="url"
   [(ngModel)]="newBook.image"
   [ngModelOptions]="{standalone: true}"
+  value={this.newBook.image}
   placeholder="URL" />
 	<textarea
   [(ngModel)]="newBook.description"
   [ngModelOptions]="{standalone: true}"
+  value={this.newBook.description}
   placeholder="Description"
   ></textarea>
-  <input type="number"
+	<input type="number"
   [(ngModel)]="newBook.price"
   [ngModelOptions]="{standalone: true}"
+  value={this.newBook.price}
   placeholder="Price" />
-	
-	<button (click)="isEdit ? editBook() : addBook()">Add</button>
+
+	<button (click)="isEdit ? editBook() : addBook()">Сохранить</button>
 </form>
 
 <div *ngFor="let book of books; let i = index">
@@ -31,4 +36,5 @@
 	<p>{{book.description}}</p>
 	<p>Цена: {{book.price}} грн.</p>
 	<button (click)="onClick(i)">Удалить</button>
+	<button (click)="onClickEdit(i)">Редактировать</button>
 </div>
