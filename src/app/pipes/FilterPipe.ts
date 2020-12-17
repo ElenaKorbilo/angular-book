@@ -7,7 +7,11 @@ import { Pipe, PipeTransform } from "@angular/core";
 export class FilterPipe implements PipeTransform {
   transform(array: any, str: string, start?: any, end?: any): any {
     return array.filter(item => {
-      return item.title.includes(str) || item.description.includes(str);
+      return (
+        item.title.includes(str) ||
+        item.description.includes(str) ||
+        item.author.includes(str)
+      );
     });
   }
 }
