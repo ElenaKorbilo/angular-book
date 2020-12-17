@@ -9,9 +9,9 @@ export class FilterPipe implements PipeTransform {
     if (str === "") return array;
     return array.filter(item => {
       return (
-        item.title.includes(str) ||
-        item.description.includes(str) ||
-        item.author.includes(str)
+        item.title.toUpperCase().includes(str.toUpperCase()) ||
+        item.description.toUpperCase().includes(str.toUpperCase()) ||
+        item.author.toUpperCase().includes(str.toUpperCase())
       );
     });
   }
