@@ -1,4 +1,5 @@
-import { Component, VERSION } from "@angular/core";
+import { Component, VERSION, Pipe, PipeTransform } from "@angular/core";
+import { FilterPipe } from "./pipes/FilterPipe";
 
 interface Book {
   id: number;
@@ -15,6 +16,8 @@ interface Book {
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
+  searchStr: string = "";
+
   newBook: Book = {
     id: null,
     title: "",

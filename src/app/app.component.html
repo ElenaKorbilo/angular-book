@@ -1,3 +1,6 @@
+<input type="text" [(ngModel)]="searchStr" [ngModelOptions]="{standalone: true}" placeholder="Search" />
+<hr>
+
 <form novalidate class="form">
 	<input
   [(ngModel)]="newBook.title"
@@ -29,12 +32,12 @@
 	<button (click)="isEdit ? editBook() : addBook()">Сохранить</button>
 </form>
 
-<div *ngFor="let book of books; let i = index">
+<div *ngFor="let book of books | filter: searchStr; let i = index">
 	<h3>{{book.title}}</h3>
 	<p>{{book.author}}</p>
 	<img [src]="book.image" width="100px" /><br>
 	<p>{{book.description}}</p>
-	<p>Цена: {{book.price}} грн.</p>
+	<p>Цена: {{book.price | currency: 'UAH': 'symbol-narrow'}} </p>
 	<button (click)="onClick(i)">Удалить</button>
 	<button (click)="onClickEdit(i)">Редактировать</button>
 </div>
